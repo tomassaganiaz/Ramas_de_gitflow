@@ -69,12 +69,15 @@ main
 │   ├─ bugfix/*   ← correcciones menores
 │   └─ release/*  ← versiones estables
 ______________________________________________
+
 ¿Cómo usar cada rama?
 
  1. ✅ main
+
 . Contiene solo el código estable en producción.
 
 . No se trabaja directamente aquí (excepto cuando se hace merge de release o hotfix).
+
 ______________________________________________________________________________________
 Bash
 
@@ -82,10 +85,12 @@ git checkout main
 git merge release/1.0.0      # Al terminar una release
 git merge hotfix/fix-login   # Al corregir algo crítico en producción
 ______________________________________________________________________________________
+
 2. ✅ develop
 . Rama principal de desarrollo, donde se integran todas las funcionalidades antes de lanzar una versión.
 
 . De aquí salen los feature, bugfix y release.
+
 ______________________________________________________________________________________
 Bash
 
@@ -93,10 +98,13 @@ git checkout develop
 git merge feature/nueva-funcionalidad
 git merge bugfix/arreglo-menor
 ______________________________________________________________________________________
+
 3. ✅ feature/*
+
 . Para nuevas funcionalidades.
 
 . Se crea desde develop y se vuelve a fusionar en develop.
+
 ______________________________________________________________________________________
 Bash
 
@@ -109,10 +117,13 @@ git checkout develop
 git merge feature/login-usuario         # Una vez terminada
 git branch -d feature/login-usuario     # Eliminás si ya no se usa
 _____________________________________________________________________________________
+
 4. ✅ release/*
+
 . Para preparar una nueva versión de producción (corregís bugs, ajustes menores).
 
 . Se crea desde develop, y se fusiona tanto en main como en develop.
+
 ____________________________________________________________________________________
 Bash
 
@@ -129,10 +140,13 @@ git merge release/1.0.0                 # También se integra a desarrollo
 
 git branch -d release/1.0.0
 __________________________________________________________________________________
+
 5. ✅ hotfix/*
+
 . Para solucionar errores críticos directamente en producción.
 
 . Se crea desde main, y se fusiona tanto en main como en develop.
+
 ___________________________________________________________________________________
 Bash
 
@@ -150,10 +164,13 @@ git merge hotfix/fix-error-crash
 
 git branch -d hotfix/fix-error-crash
 _____________________________________________________________________________________
+
 6. ✅ bugfix/* (opcional)
+
 . Para arreglos menores que no afectan producción directamente.
 
 . Igual a feature, pero para bugs pequeños.
+
 ______________________________________________________________________________________
 Bash
 
